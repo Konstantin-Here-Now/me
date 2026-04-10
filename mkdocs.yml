@@ -1,26 +1,20 @@
 site_name: Konstantin Ryabtsev
-site_description: Personal contact card
-site_url: https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO_NAME/
 
 theme:
   name: material
-  language: ru
-  features:
-    - navigation.instant
-    - navigation.tracking
-    - content.code.copy
+  language: en
   palette:
-    - scheme: default
-      primary: black
-      accent: blue
-    - scheme: slate
-      primary: black
-      accent: blue
+    primary: black
+    accent: blue
+  features: []
 
 markdown_extensions:
   - attr_list
-  - md_in_html
-  - admonition
 
 extra_css:
   - stylesheets/extra.css
+
+plugins: []
+
+extra:
+  generator: false

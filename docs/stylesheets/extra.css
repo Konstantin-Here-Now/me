@@ -1,42 +1,84 @@
+/* Ночной режим: тёмный фон, мягкий контраст текста.
+   У Material светлая палитра задаёт --md-default-bg-color в
+   [data-md-color-scheme="default"] — сильнее, чем :root, поэтому дублируем там. */
+:root,
+[data-md-color-scheme="default"] {
+  --md-default-bg-color: #1c1d22;
+  --md-default-fg-color: #e6e6ec;
+  --md-typeset-color: #bfc0c9;
+  --md-typeset-a-color: #9bb8ff;
+  --md-header-height: 0px;
+}
+
+html,
+body,
+.md-container,
+.md-main,
+.md-main__inner,
+.md-content,
+.md-content__inner {
+  background-color: var(--md-default-bg-color) !important;
+}
+
+.md-header {
+  display: none;
+}
+
+/* Заголовок и подзаголовок по центру */
+.md-content .md-typeset h1 {
+  margin-bottom: 0.5rem;
+  text-align: center;
+  color: #eeeff4;
+}
+
+.md-content .md-typeset h1 + p {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  color: var(--md-typeset-color);
+}
+
 .md-content .contact-button {
-    display: inline-block;
-    margin: 0.35rem 0.5rem 0.35rem 0;
-    border-radius: 999px;
-    font-weight: 700;
-    min-width: 11rem;
-    text-align: center;
-    border: none;
-    color: #ffffff !important;
-    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
-    transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
-  }
-  
-  .md-content .contact-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
-    opacity: 0.96;
-  }
-  
-  .md-content .telegram-button {
-    background: #27a7e7;
-  }
-  
-  .md-content .vk-button {
-    background: #0077ff;
-  }
-  
-  .md-content .gmail-button {
-    background: #d93025;
-  }
-  
-  .md-typeset h1 {
-    margin-bottom: 0.5rem;
-  }
-  
-  .md-typeset hr {
-    margin: 2rem 0;
-  }
-  
-  .md-content {
-    padding-bottom: 3rem;
-  }
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0.5rem 0;
+  border-radius: 999px;
+  font-weight: 700;
+  text-align: center;
+  border: none;
+  color: #ffffff !important;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+/* Тема перекрашивает .md-button при hover в акцент — фиксируем свой цвет */
+.md-content .contact-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.55);
+  filter: brightness(1.1);
+  color: #ffffff !important;
+}
+
+.md-content .telegram-button,
+.md-content .telegram-button:hover {
+  background-color: #27a7e7 !important;
+}
+
+.md-content .vk-button,
+.md-content .vk-button:hover {
+  background-color: #0077ff !important;
+}
+
+.md-content .gmail-button,
+.md-content .gmail-button:hover {
+  background-color: #d93025 !important;
+}
+
+.md-typeset hr {
+  margin: 2rem 0;
+}
+
+.md-content {
+  padding-bottom: 3rem;
+}
